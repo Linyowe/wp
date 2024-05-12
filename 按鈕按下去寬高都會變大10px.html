@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按鈕尺寸增加</title>
+    <style>
+        button{
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <button id="我的按鈕" onclick="increasesize()">按鈕尺寸增加</button>
+    <script>
+        function increasesize(){
+        var button = document.getElementById('myButton');
+        var currentWidth = button.offsetWidth;
+        var currentHeight = button.offsetHeight;
+        button.style.width = (currentWidth + 10) + 'px';
+        button.style.height = (currentHeight + 10) + 'px';
+        }
+    </script>
+</body>
+</html>
