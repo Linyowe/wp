@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自動移動按鈕</title>
+    <style>
+        /* 為按鈕添加樣式 */
+        #movingButton {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<button id="movingButton">自動移動按鈕</button>
+
+<script>
+
+    let button = document.getElementById('movingButton');
+    let positionX = 0;
+    let positionY = 0;
+    button.style.left = positionX + 'px';
+    button.style.top = positionY + 'px';
+    let speedX = 1;
+    let speedY = 1;
+    let directionX = 1;
+    let directionY = 1;
+    function moveButton() {
+        positionX += speedX * directionX;
+        positionY += speedY * directionY;
+
+        
+        button.style.left = positionX + 'px';
+        //button.style.left = positionX + 'px'; 將按鈕的水平位置（左側位置）設置為 positionX 變數的值加上 'px' 單位，這是為了將其轉換為有效的 CSS 長度值
+        button.style.top = positionY + 'px';
+        //button.style.top = positionY + 'px'; 將按鈕的垂直位置（上側位置）設置為 positionY 變數的值加上 'px' 單位，同樣是為了轉換為有效的 CSS 長度值。
+        if (positionX <= 0 || positionX + button.offsetWidth >= window.innerWidth) {
+            directionX *= -1;
+        }
+        if (positionY <= 0 || positionY + button.offsetHeight >= window.innerHeight) {
+            directionY *= -1;
+        }
+    }
+
+    // 設置定時器，每隔一段時間移動按鈕
+    setInterval(moveButton, 10);
+</script>
+
+</body>
+</html>
+//參考chatgpt
