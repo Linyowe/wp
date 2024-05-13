@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="moveRight()">Button1</button>
+
+<script>
+let left = 100;
+let button = document.querySelector('button');
+//document.querySelector 是 JavaScript 中一個常用的方法，用於從 DOM（文檔對象模型）中選擇第一個匹配指定 CSS 選擇器的元素。
+
+//這個方法接受一個 CSS 選擇器作為參數，並返回匹配該選擇器的第一個元素，如果找不到匹配的元素，則返回 null。
+
+button.style.position = 'absolute';
+button.style.left = left + 'px';
+
+function moveRight() {
+    left += 10;
+    button.style.left = left + 'px';
+//這行程式碼將按鈕元素的 CSS left 屬性設置為一個值，這個值由變數 left 加上 'px' 單位組成。這樣做的目的是將按鈕元素向右移動指定的像素數量。
+//left 是一個存儲按鈕左側位置的變數。
+//left + 'px' 將 left 變數的值加上 'px' 單位，以符合 CSS 中 left 屬性的要求。
+//這樣，當你呼叫 moveRight() 函數時，按鈕元素就會根據 left 變數的值向右移動指定的像素數量。
+}
+</script>
+
+</body>
+</html>
+//參考chatgpt
