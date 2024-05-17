@@ -1,0 +1,13 @@
+div {
+    width: 100px;
+    height: 100px;
+    background: rgb(134, 218, 177);
+    transition: width 2s;
+  }
+  div:hover {
+    width: 300px;
+  }
+div {transition-timing-function: linear;}
+.grid-container {
+    display: grid;
+  }
