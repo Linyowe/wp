@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網站頁面</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            transition: transform 0.3s ease; 
+            transform: translateX(-200px); 
+            z-index: 1; 
+        }
+        nav.nav-open {
+            transform: translateX(0); 
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-bottom: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+        header {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+            margin-left: 200px;
+            transition: margin-left 0.3s ease; 
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 600px; 
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-toggle {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 180px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <button class="nav-toggle">收起選單</button>
+    <ul>
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>網站標題</h1>
+</header>
+
+<section id="section1">
+    <h2>第一個區塊</h2>
+    <p>這裡是第一個區塊的內容。</p>
+</section>
+
+<section id="section2">
+    <h2>第二個區塊</h2>
+    <p>這裡是第二個區塊的內容。</p>
+</section>
+
+<section id="section3">
+    <h2>第三個區塊</h2>
+    <p>這裡是第三個區塊的內容。</p>
+</section>
+
+<script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+    });
+</script>
+
+</body>
+</html>
+
