@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq LLM Web App</title>
+</head>
+<body>
+    <h1>Groq LLM Web Application</h1>
+    <form id="llmForm">
+        <label for="userInput">輸入你的測試:</label>
+        <input type="text" id="userInput" name="userInput" required>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Response:</h2>
+    <p id="response"></p>
+
+    <script>
+        document.getElementById('llmForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            const responseElement = document.getElementById('response');
+            responseElement.textContent = 'Loading...';
+
+            try {
+                const response = await fetch('/api/llm', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: userInput }),
+                });
+                const data = await response.json();
+                responseElement.textContent = data.response;
+            } catch (error) {
+                responseElement.textContent = 'Error: ' + error;
+            }
+        });
+    </script>
+</body>
+</html>
